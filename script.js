@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const categoryCards = document.querySelectorAll('.category-card');
     const toast = document.getElementById('toastMsg');
 
-    // وظيفة عرض رسالة短暂ة
+
     function showMessage(text, duration = 1500) {
         toast.textContent = text;
         toast.classList.add('show');
@@ -144,13 +144,20 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // إضافة تأثير إضافي للصور - تحقق من وجود الصورة
+
     const shapeImg = document.querySelector('.image-section img');
     if (shapeImg) {
-        // لو حابب تضيف fallback للصورة في حال ما كانت موجودة
+
         shapeImg.onerror = function () {
             this.src = 'https://placehold.co/400x500/e9ecef/2c3e50?text=Shape+Not+Found';
             this.alt = 'Shape placeholder';
         };
     }
+});
+
+
+document.querySelectorAll('.image-box').forEach(box => {
+    box.addEventListener('click', () => {
+        box.classList.toggle('active');
+    });
 });
